@@ -9,7 +9,6 @@ import ProfesorLayout from '@/components/common/ProfesorLayout'
 import SplashScreen from '@/components/common/SplashScreen'
 import ErrorBoundary from '@/components/common/ErrorBoundary'
 
-// Lazy loading — cada página se carga solo cuando se navega a ella
 const LoginPage        = lazy(() => import('@/pages/LoginPage'))
 const DashboardPage    = lazy(() => import('@/pages/DashboardPage'))
 const AlumnosPage      = lazy(() => import('@/pages/AlumnosPage'))
@@ -29,8 +28,6 @@ function RootRedirect() {
 function AppRoutes() {
   const { loading } = useAuth()
 
-  // Mientras se rehidrata la sesión de Supabase (incluye refresh de página)
-  // mostramos el splash en lugar de un spinner genérico o un flash al /login
   if (loading) return <SplashScreen />
 
   return (
@@ -38,24 +35,30 @@ function AppRoutes() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
 
-        {/* Rutas admin */}
-        <Route element={<ProtectedRoute allowedRoles={['admin', 'superadmin']} />}>
-          <Route element={<AdminLayout />}>
+        {/* AdminLayout — agrupa las rutas que usan la barra lateral */}
+        <Route element={<AdminLayout />}>
+
+          {/* Rutas exclusivas de admin/superadmin */}
+          <Route element={<ProtectedRoute allowedRoles={['admin', 'superadmin']} />}>
             <Route path="/dashboard"     element={<DashboardPage />} />
-            <Route path="/alumnos"       element={<AlumnosPage />} />
             <Route path="/pagos"         element={<PagosPage />} />
             <Route path="/egresos"       element={<EgresosPage />} />
             <Route path="/asistencia"    element={<AsistenciaPage />} />
             <Route path="/ventas"        element={<VentasPage />} />
             <Route path="/configuracion" element={<ConfiguracionPage />} />
           </Route>
+
+          {/* Rutas compartidas: admin y profesor */}
+          <Route element={<ProtectedRoute allowedRoles={['admin', 'superadmin', 'profesor']} />}>
+            <Route path="/alumnos" element={<AlumnosPage />} />
+          </Route>
+
         </Route>
 
-        {/* Rutas profesor */}
+        {/* ProfesorLayout — solo mis-horas */}
         <Route element={<ProtectedRoute allowedRoles={['profesor', 'admin', 'superadmin']} />}>
           <Route element={<ProfesorLayout />}>
             <Route path="/mis-horas" element={<MisHorasPage />} />
-            <Route path="/alumnos"   element={<AlumnosPage />} />
           </Route>
         </Route>
 

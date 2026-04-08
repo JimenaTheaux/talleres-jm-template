@@ -70,15 +70,17 @@ export default function Sidebar({ onClose }: SidebarProps) {
     }
   }
 
+  const esProfesor = perfil?.rol === 'profesor'
+
   const navItems = [
-    { path: '/dashboard',     label: 'Dashboard',      icon: LayoutDashboard },
-    { path: '/alumnos',       label: 'Alumnos',         icon: Users },
-    { path: '/pagos',         label: 'Pagos',           icon: CreditCard },
-    { path: '/egresos',       label: 'Egresos',         icon: TrendingDown },
-    { path: '/asistencia',    label: 'Asistencia',      icon: Clock },
-    { path: '/ventas',        label: 'Ventas',          icon: ShoppingBag },
-    { path: '/configuracion', label: 'Configuración',   icon: Settings },
-  ]
+    { path: '/dashboard',     label: 'Dashboard',      icon: LayoutDashboard, soloAdmin: true },
+    { path: '/alumnos',       label: 'Alumnos',         icon: Users,           soloAdmin: false },
+    { path: '/pagos',         label: 'Pagos',           icon: CreditCard,      soloAdmin: true },
+    { path: '/egresos',       label: 'Egresos',         icon: TrendingDown,    soloAdmin: true },
+    { path: '/asistencia',    label: 'Asistencia',      icon: Clock,           soloAdmin: true },
+    { path: '/ventas',        label: 'Ventas',          icon: ShoppingBag,     soloAdmin: true },
+    { path: '/configuracion', label: 'Configuración',   icon: Settings,        soloAdmin: true },
+  ].filter((item) => !esProfesor || !item.soloAdmin)
 
   return (
     <div className="flex flex-col h-full w-64 bg-gradient-to-b from-primary to-secondary">

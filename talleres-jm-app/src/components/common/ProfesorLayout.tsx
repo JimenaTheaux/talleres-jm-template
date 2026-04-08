@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Outlet, NavLink } from 'react-router-dom'
-import { LogOut, Lock, Users } from 'lucide-react'
+import { Outlet } from 'react-router-dom'
+import { LogOut, Lock } from 'lucide-react'
 import { useAuthStore } from '@/store/authStore'
 import { supabase } from '@/lib/supabase'
 import CambiarContrasenaModal from './CambiarContrasenaModal'
@@ -24,20 +24,7 @@ export default function ProfesorLayout() {
           paddingTop: 'max(env(safe-area-inset-top), 0.75rem)',
         }}
       >
-        <div className="flex items-center gap-3">
-          <span className="font-display font-bold text-white text-base">Talleres JM</span>
-          <NavLink
-            to="/alumnos"
-            className={({ isActive }) =>
-              `flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-body font-semibold transition-colors ${
-                isActive ? 'bg-white/20 text-white' : 'text-white/70 hover:bg-white/10 hover:text-white'
-              }`
-            }
-          >
-            <Users size={16} />
-            <span>Alumnos</span>
-          </NavLink>
-        </div>
+        <span className="font-display font-bold text-white text-base">Talleres JM</span>
         <div className="flex items-center gap-1">
           {perfil && (
             <span className="text-sm font-body text-white/80 hidden sm:block mr-2">
