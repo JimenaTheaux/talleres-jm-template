@@ -58,8 +58,8 @@ export default defineConfig({
       },
 
       manifest: {
-        name: 'Talleres JM',
-        short_name: 'Talleres JM',
+        name: 'Mi App',
+        short_name: 'App',
         description: 'Gestión interna Talleres JM',
         theme_color: '#05173B',
         background_color: '#F8FAFC',
