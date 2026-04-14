@@ -46,7 +46,7 @@ export default function AdminLayout() {
         >
           <Menu size={22} />
         </button>
-        <span className="font-display font-bold text-primary text-base">Talleres JM</span>
+        <span className="font-display font-bold text-primary text-base">Talleres DEMO</span>
         <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
           <span className="text-primary text-xs font-display font-bold">
             {perfil ? `${perfil.nombre[0]}${perfil.apellido[0]}` : '?'}

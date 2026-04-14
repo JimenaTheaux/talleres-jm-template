@@ -76,7 +76,7 @@ export default function LoginPage() {
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-4 shadow-md">
             <span className="text-white font-display font-black text-xl">TJ</span>
           </div>
-          <h1 className="text-2xl font-display font-bold text-primary">Talleres JM</h1>
+          <h1 className="text-2xl font-display font-bold text-primary">Talleres DEMO</h1>
           <p className="text-sm font-body text-text-secondary mt-1">Ingresá a tu cuenta</p>
         </div>
 

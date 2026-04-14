@@ -16,13 +16,13 @@ export default function SplashScreen() {
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-white z-50 gap-5 px-8">
       <img
         src="/favicon.svg"
-        alt="Talleres JM"
+        alt="Talleres DEMO"
         width={96}
         height={92}
         style={{ filter: 'drop-shadow(0 4px 16px rgba(134,59,255,0.18))' }}
       />
       <p className="font-display font-bold text-xl" style={{ color: '#05173B' }}>
-        Talleres JM
+        Talleres DEMO
       </p>
 
       {phase === 'loading' && (

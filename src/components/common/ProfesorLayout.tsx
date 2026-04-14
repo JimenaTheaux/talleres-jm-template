@@ -25,7 +25,7 @@ export default function ProfesorLayout() {
         }}
       >
         <div className="flex items-center gap-3">
-          <span className="font-display font-bold text-white text-base">Talleres JM</span>
+          <span className="font-display font-bold text-white text-base">Talleres DEMO</span>
           <NavLink
             to="/alumnos"
             className={({ isActive }) =>

@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { useAuth } from '@/hooks/useAuth'
 import { useAuthStore } from '@/store/authStore'
 
@@ -75,6 +76,7 @@ export default function App() {
       <ErrorBoundary>
         <AppRoutes />
       </ErrorBoundary>
+      <Analytics />
     </BrowserRouter>
   )
 }

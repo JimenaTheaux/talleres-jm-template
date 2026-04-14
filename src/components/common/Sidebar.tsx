@@ -96,7 +96,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
             Club
           </p>
           <h1 className="text-lg font-display font-bold text-white leading-tight">
-            Talleres JM
+            Talleres DEMO
           </h1>
         </div>
         {onClose && (
